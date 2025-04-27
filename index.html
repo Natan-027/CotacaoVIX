@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cotações CEASA Grande Vitória</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+        .table-container {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .action-buttons {
+            margin-bottom: 20px;
+        }
+        .loading {
+            display: none;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="table-container">
+            <div class="action-buttons">
+                <a href="/api/produtos?format=pdf" class="btn btn-primary" target="_blank">Baixar PDF</a>
+                <a href="/api/produtos?format=csv" class="btn btn-primary" target="_blank">Baixar CSV</a>
+                <button id="btnAtualizar" class="btn btn-primary">
+                    Atualizar Dados
+                    <span class="spinner-border spinner-border-sm loading" id="loadingSpinner" role="status" aria-hidden="true"></span>
+                </button>
+            </div>
+            
+            <div class="alert alert-success" id="successAlert" style="display: none;">
+                Dados atualizados com sucesso!
+            </div>
+            
+            <div class="alert alert-danger" id="errorAlert" style="display: none;">
+                Erro ao atualizar dados. Tente novamente mais tarde.
+            </div>
+            
+            <table id="tabelaProdutos" class="table table-striped table-bordered">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Produto</th>
+                        <th>Unidade</th>
+                        <th>Preço Mínimo</th>
+                        <th>Preço Médio</th>
+                        <th>Preço Máximo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for produto in produtos %}
+                    <tr>
+                        <td>{{ produto.Produto }}</td>
+                        <td>{{ produto.Unidade }}</td>
+                        <td>R$ {{ produto.Preco_Min|round(2)|string|replace('.', ',') }}</td>
+                        <td>R$ {{ produto.Preco_Medio|round(2)|string|replace('.', ',') }}</td>
+                        <td>R$ {{ produto.Preco_Max|round(2)|string|replace('.', ',') }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Inicializar DataTable para produtos
+            $('#tabelaProdutos').DataTable({
+                language: {
+                    url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/pt-BR.json'
+                },
+                responsive: true,
+                order: [[0, 'asc']], // Ordenar por produto
+                pageLength: 1000, // Mostrar todos os produtos em uma única página
+                lengthChange: false, // Remover opção de mudar número de itens por página
+                searching: true // Manter a busca
+            });
+            
+            // Botão de atualização
+            $('#btnAtualizar').click(function() {
+                $('#loadingSpinner').show();
+                $('#successAlert').hide();
+                $('#errorAlert').hide();
+                
+                $.ajax({
+                    url: '/atualizar',
+                    type: 'GET',
+                    success: function(response) {
+                        $('#loadingSpinner').hide();
+                        $('#successAlert').show();
+                        setTimeout(function() {
+                            location.reload();
+                        }, 2000);
+                    },
+                    error: function() {
+                        $('#loadingSpinner').hide();
+                        $('#errorAlert').show();
+                    }
+                });
+            });
+
+            // Verificar se é hora de atualizar (11h no Brasil)
+            function verificarHoraAtualizacao() {
+                const agora = new Date();
+                // Converter para horário do Brasil (UTC-3)
+                const horaBrasil = new Date(agora.getTime() - (3 * 60 * 60 * 1000));
+                
+                if (horaBrasil.getHours() === 11 && horaBrasil.getMinutes() === 0) {
+                    // É 11h no Brasil, atualizar dados
+                    $('#btnAtualizar').click();
+                }
+                
+                // Verificar novamente em 1 minuto
+                setTimeout(verificarHoraAtualizacao, 60000);
+            }
+            
+            // Iniciar verificação de hora
+            verificarHoraAtualizacao();
+        });
+    </script>
+</body>
+</html>
