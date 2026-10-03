@@ -180,6 +180,22 @@ def gerar_pagina(dia, itens):
         encoding="utf-8")
 
 
+# ------------------------------------------------------------ diagnóstico ----
+def diagnosticar(pagina):
+    """Quando a tabela não aparece, guarda o que o robô viu em docs/debug/ e mostra um resumo."""
+    try:
+        pasta = SAIDA / "debug"
+        pasta.mkdir(parents=True, exist_ok=True)
+        texto = " ".join(pagina.inner_text("body").split())
+        print(f"Diagnóstico: endereço {pagina.url} | título {pagina.title()!r} "
+              f"| frames {len(pagina.frames)}")
+        print(f"Diagnóstico: texto visível ({len(texto)} caracteres): {texto[:300] or '(vazio)'}")
+        (pasta / "resultado.html").write_text(pagina.content(), encoding="utf-8")
+        pagina.screenshot(path=str(pasta / "resultado.png"), full_page=True)
+    except Exception as e:  # noqa: BLE001
+        print(f"Diagnóstico: não consegui inspecionar a página ({e})")
+
+
 # ------------------------------------------------------------- principal ----
 def main():
     dia, explicita = data_alvo()
@@ -199,6 +215,8 @@ def main():
 
     if os.environ.get("CEASA_URL"):
         cot.URL = os.environ["CEASA_URL"]
+    hist.ESPERA_TABELA = 25        # o servidor é lento visto de fora do Brasil: espera até ~25 s pela tabela
+    hist.AO_FALHAR = diagnosticar
 
     try:
         with sync_playwright() as p:

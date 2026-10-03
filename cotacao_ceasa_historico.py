@@ -36,6 +36,8 @@ PAUSA = 1.0          # segundos entre consultas (educado com o servidor)
 TENTATIVAS = 3       # tentativas por data antes de desistir dela
 MAX_PROBLEMAS_SEGUIDOS = 5  # para tudo se o site falhar tantas datas seguidas
 DEBUG = "--debug" in sys.argv
+ESPERA_TABELA = 1   # segundos extras esperando a tabela aparecer (o robô de publicação aumenta)
+AO_FALHAR = None    # função opcional chamada com a página quando a tabela não é encontrada
 
 
 def argumento(nome):
@@ -88,7 +90,16 @@ def consultar_dia(page, valor):
     pagina = page.context.pages[-1]
     pagina.wait_for_load_state("load")
     try:
-        return cot.achar_tabela(pagina)
+        # espera a tabela aparecer (a página pode montá-la depois de carregar)
+        tabela = cot.achar_tabela(pagina)
+        for _ in range(ESPERA_TABELA):
+            if tabela is not None:
+                break
+            pagina.wait_for_timeout(1000)
+            tabela = cot.achar_tabela(pagina)
+        if tabela is None and AO_FALHAR is not None:
+            AO_FALHAR(pagina)  # gancho de diagnóstico (usado pelo robô de publicação)
+        return tabela
     finally:
         if pagina is not page:
             pagina.close()
