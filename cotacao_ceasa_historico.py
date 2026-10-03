@@ -36,6 +36,8 @@ PAUSA = 1.0          # segundos entre consultas (educado com o servidor)
 TENTATIVAS = 3       # tentativas por data antes de desistir dela
 MAX_PROBLEMAS_SEGUIDOS = 5  # para tudo se o site falhar tantas datas seguidas
 DEBUG = "--debug" in sys.argv
+CLIQUES = 4           # quantas vezes clicar em Ok até a página responder
+TEMPO_NAVEGACAO = 12000  # ms esperando a página de resultado depois de cada clique
 ESPERA_TABELA = 1   # segundos extras esperando a tabela aparecer (o robô de publicação aumenta)
 AO_FALHAR = None    # função opcional chamada com a página quando a tabela não é encontrada
 
@@ -78,12 +80,24 @@ def consultar_dia(page, valor):
         arg=valor, timeout=20000)
     page.locator("#id_sc_field_datas").select_option(value=valor)
     resposta = None
-    try:
-        with page.expect_navigation(wait_until="load", timeout=30000) as navegacao:
-            page.click("#sub_form_t")
-        resposta = navegacao.value
-    except PWTimeout:
-        pass  # talvez tenha aberto em outra aba; conferimos abaixo
+    # O botão Ok da página ignora o clique enquanto outra operação está em andamento
+    # (variável Nm_Proc_Atualiz). Em conexões lentas isso é comum: esperamos a página
+    # ficar livre e, se nada acontecer, clicamos de novo.
+    for tentativa in range(1, CLIQUES + 1):
+        page.wait_for_timeout(1000)
+        try:
+            page.wait_for_function(
+                "() => typeof Nm_Proc_Atualiz === 'undefined' || !Nm_Proc_Atualiz", timeout=15000)
+        except PWTimeout:
+            pass
+        try:
+            with page.expect_navigation(wait_until="load", timeout=TEMPO_NAVEGACAO) as navegacao:
+                page.click("#sub_form_t")
+            resposta = navegacao.value
+            break
+        except PWTimeout:
+            if len(page.context.pages) > 1:
+                break  # o resultado abriu em outra aba
     if resposta is not None and resposta.status >= 400:
         raise RuntimeError(f"site respondeu HTTP {resposta.status} ao consultar a data")
     page.wait_for_timeout(1500)

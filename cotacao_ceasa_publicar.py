@@ -181,9 +181,24 @@ def gerar_pagina(dia, itens):
 
 
 # ------------------------------------------------------------ diagnóstico ----
+EVENTOS = []   # diálogos, erros de JavaScript e pedidos que falharam durante a consulta
+
+
+def observar(page):
+    page.on("dialog", lambda d: (EVENTOS.append(f"diálogo: {d.message[:120]}"), d.accept()))
+    page.on("pageerror", lambda e: EVENTOS.append(f"erro JS: {str(e)[:150]}"))
+    page.on("requestfailed", lambda r: EVENTOS.append(f"pedido falhou: {r.url[:100]}"))
+
+
 def diagnosticar(pagina):
     """Quando a tabela não aparece, guarda o que o robô viu em docs/debug/ e mostra um resumo."""
     try:
+        try:
+            estado = pagina.evaluate(
+                "typeof Nm_Proc_Atualiz === 'undefined' ? 'indefinido' : String(Nm_Proc_Atualiz)")
+        except Exception:  # noqa: BLE001
+            estado = "?"
+        print(f"Diagnóstico: Nm_Proc_Atualiz={estado} | eventos da página: {EVENTOS[-8:] or 'nenhum'}")
         pasta = SAIDA / "debug"
         pasta.mkdir(parents=True, exist_ok=True)
         texto = " ".join(pagina.inner_text("body").split())
@@ -222,6 +237,7 @@ def main():
         with sync_playwright() as p:
             browser = p.chromium.launch(headless=True)
             page = browser.new_page()
+            observar(page)
             datas = hist.listar_datas(page)
             valor = next((v for d, v in datas if d.date() == dia), None)
             if valor is None:
