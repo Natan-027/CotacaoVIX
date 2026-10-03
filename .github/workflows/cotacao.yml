@@ -1,0 +1,60 @@
+name: Cotação CEASA
+
+on:
+  schedule:
+    # 12:00 UTC = 09:00 em Brasília. De 20 em 20 minutos até 15:40 UTC (12:40 em Brasília):
+    # são 12 tentativas, de segunda a sexta.
+    - cron: "0,20,40 12-15 * * 1-5"
+  workflow_dispatch:
+    inputs:
+      data:
+        description: "Opcional, para teste: data no formato AAAA-MM-DD"
+        required: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cotacao
+  cancel-in-progress: false
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      DATA_TESTE: ${{ github.event.inputs.data }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # Verificação leve: se já publicou hoje ou for fim de semana, para aqui (poucos segundos)
+      - name: Precisa rodar?
+        id: verifica
+        run: python cotacao_ceasa_publicar.py --precisa-rodar
+
+      - name: Instalar componentes
+        if: steps.verifica.outputs.rodar == 'true'
+        run: |
+          pip install -r requirements.txt
+          playwright install --with-deps chromium
+
+      - name: Consultar o CEASA e publicar
+        if: steps.verifica.outputs.rodar == 'true'
+        run: python cotacao_ceasa_publicar.py
+
+      - name: Salvar no repositório
+        if: steps.verifica.outputs.rodar == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add dados docs
+          if git diff --cached --quiet; then
+            echo "Nada novo para salvar."
+          else
+            git commit -m "Cotação CEASA $(TZ=America/Sao_Paulo date +%d/%m/%Y)"
+            git push
+          fi
