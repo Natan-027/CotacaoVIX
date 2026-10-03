@@ -143,7 +143,7 @@ PAGINA = """<!doctype html>
   <div class="rolagem">
     <table>
       <colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup>
-      <thead><tr><th>Produto</th><th>Embalagem</th><th class="num">Preço (R$)</th></tr></thead>
+      <thead><tr><th>Produto</th><th>Embalagem</th><th class="num">R$</th></tr></thead>
       <tbody id="corpo">
 {linhas}
       </tbody>
