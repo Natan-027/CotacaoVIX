@@ -98,7 +98,8 @@ PAGINA = """<!doctype html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Cotação CEASA-ES</title>
 <style>
-  :root {{ --texto:#1f2a24; --suave:#66736b; --linha:#e3e8e5; --destaque:#1b6b3a; --fundo-cab:#f3f7f4; }}
+  :root {{ --texto:#1f2a24; --suave:#66736b; --linha:#e3e8e5; --destaque:#1b6b3a; --fundo-cab:#f3f7f4;
+          --fundo-par:#eaf5ee; --borda:18px; --meio:4px; }}
   * {{ box-sizing: border-box; }}
   body {{ margin:0; padding:12px; font:15px/1.4 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
          color:var(--texto); background:transparent; }}
@@ -106,28 +107,34 @@ PAGINA = """<!doctype html>
   header {{ padding:16px 18px 12px; border-bottom:1px solid var(--linha); }}
   .origem {{ margin:0; font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--suave); }}
   h1 {{ margin:2px 0 0; font-size:20px; color:var(--destaque); }}
-  .data {{ margin:2px 0 0; color:var(--suave); }}
   .busca {{ padding:10px 18px; border-bottom:1px solid var(--linha); display:flex; gap:10px; align-items:center; }}
   .busca input {{ flex:1; min-width:0; padding:8px 10px; border:1px solid var(--linha); border-radius:8px; font:inherit; }}
   .busca span {{ color:var(--suave); font-size:13px; white-space:nowrap; }}
   .rolagem {{ max-height:560px; overflow:auto; }}
-  table {{ width:100%; border-collapse:collapse; }}
-  th, td {{ padding:8px 18px; text-align:left; border-bottom:1px solid var(--linha); }}
+  table {{ width:100%; border-collapse:collapse; table-layout:fixed; }}
+  /* larguras: produto ~17 caracteres, embalagem ~9, preço ~5 (em %, para nunca precisar de rolagem lateral) */
+  col.c1 {{ width:52%; }}
+  col.c2 {{ width:29%; }}
+  col.c3 {{ width:19%; }}
+  th, td {{ padding:4px var(--meio); text-align:left; border-bottom:1px solid var(--linha); overflow-wrap:break-word; }}
+  th:first-child, td:first-child {{ padding-left:var(--borda); }}
+  th:last-child, td:last-child {{ padding-right:var(--borda); }}
   th {{ position:sticky; top:0; background:var(--fundo-cab); font-size:12px; text-transform:uppercase;
-       letter-spacing:.04em; color:var(--suave); }}
-  td.num, th.num {{ text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; }}
-  td.emb {{ color:var(--suave); font-size:13px; white-space:nowrap; }}
+       letter-spacing:.04em; color:var(--suave); padding-top:6px; padding-bottom:6px; }}
+  td.num {{ text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; }}
+  th.num {{ text-align:right; }}
+  td.emb {{ color:var(--suave); font-size:13px; }}
+  tr.par td {{ background:var(--fundo-par); }}
   tr:last-child td {{ border-bottom:0; }}
   footer {{ padding:10px 18px; font-size:12px; color:var(--suave); border-top:1px solid var(--linha); }}
-  @media (max-width:520px) {{ th, td {{ padding:8px 12px; }} header, .busca, footer {{ padding-left:12px; padding-right:12px; }} }}
+  @media (max-width:520px) {{ :root {{ --borda:10px; }} header, .busca, footer {{ padding-left:10px; padding-right:10px; }} }}
 </style>
 </head>
 <body>
 <div class="cartao">
   <header>
     <p class="origem">CEASA-ES · Grande Vitória</p>
-    <h1>Cotação do dia</h1>
-    <p class="data">{data_br}</p>
+    <h1>Cotação do dia {data_br}</h1>
   </header>
   <div class="busca">
     <input id="q" type="search" placeholder="Buscar produto..." aria-label="Buscar produto">
@@ -135,13 +142,14 @@ PAGINA = """<!doctype html>
   </div>
   <div class="rolagem">
     <table>
+      <colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup>
       <thead><tr><th>Produto</th><th>Embalagem</th><th class="num">Preço (R$)</th></tr></thead>
       <tbody id="corpo">
 {linhas}
       </tbody>
     </table>
   </div>
-  <footer>Preço M.C. do boletim diário do CEASA-ES. Atualizado em {atualizado}.</footer>
+  <footer>Preço médio dos produtos conforme o boletim diário do CEASA-ES. Atualizado em {atualizado}.</footer>
 </div>
 <script>
   var q = document.getElementById('q'), linhas = document.querySelectorAll('#corpo tr'),
@@ -150,7 +158,8 @@ PAGINA = """<!doctype html>
     var t = q.value.trim().toLowerCase(), n = 0;
     linhas.forEach(function (tr) {{
       var ok = tr.textContent.toLowerCase().indexOf(t) !== -1;
-      tr.style.display = ok ? '' : 'none'; if (ok) n++;
+      tr.style.display = ok ? '' : 'none';
+      if (ok) {{ tr.classList.toggle('par', n % 2 === 1); n++; }}
     }});
     contagem.textContent = n + (n === 1 ? ' produto' : ' produtos');
   }});
@@ -160,24 +169,45 @@ PAGINA = """<!doctype html>
 """
 
 
-def gerar_pagina(dia, itens):
+def gerar_pagina(dia, itens, atualizado_em=None, escrever_json=True):
     SAIDA.mkdir(parents=True, exist_ok=True)
-    agora = datetime.now(BRASILIA)
+    agora = atualizado_em or datetime.now(BRASILIA)
     linhas = "\n".join(
-        f'        <tr><td>{html.escape(it["produto"])}</td>'
+        f'        <tr{" class=\"par\"" if i % 2 else ""}><td>{html.escape(it["produto"])}</td>'
         f'<td class="emb">{html.escape(it["embalagem"])}</td>'
         f'<td class="num">{preco_br(it["preco"])}</td></tr>'
-        for it in itens)
+        for i, it in enumerate(itens))
     (SAIDA / "cotacao.html").write_text(
         PAGINA.format(data_br=f"{dia:%d/%m/%Y}", total=len(itens), linhas=linhas,
                       atualizado=f"{agora:%d/%m/%Y às %H:%M}"),
         encoding="utf-8")
-    (SAIDA / "cotacao.json").write_text(
-        json.dumps({"data": dia.isoformat(), "data_br": f"{dia:%d/%m/%Y}",
-                    "mercado": "CEASA Grande Vitória",
-                    "atualizado_em": agora.isoformat(timespec="seconds"),
-                    "itens": itens}, ensure_ascii=False, indent=1),
-        encoding="utf-8")
+    if escrever_json:
+        (SAIDA / "cotacao.json").write_text(
+            json.dumps({"data": dia.isoformat(), "data_br": f"{dia:%d/%m/%Y}",
+                        "mercado": "CEASA Grande Vitória",
+                        "atualizado_em": agora.isoformat(timespec="seconds"),
+                        "itens": itens}, ensure_ascii=False, indent=1),
+            encoding="utf-8")
+
+
+def modo_refazer():
+    """--data refazer (ou DATA_TESTE=refazer): só reconstrói a página com os dados já publicados."""
+    texto = (argumento("--data") or os.environ.get("DATA_TESTE", "")).strip().lower()
+    return texto == "refazer"
+
+
+def refazer_pagina():
+    arquivo = SAIDA / "cotacao.json"
+    if not arquivo.exists():
+        print("Ainda não há boletim publicado: nada para refazer.")
+        return 0
+    dados = json.loads(arquivo.read_text(encoding="utf-8"))
+    dia = datetime.fromisoformat(dados["data"]).date()
+    atualizado = datetime.fromisoformat(dados["atualizado_em"])
+    gerar_pagina(dia, dados["itens"], atualizado, escrever_json=False)
+    print(f"Página refeita com os dados de {dia:%d/%m/%Y} ({len(dados['itens'])} produtos), "
+          "sem consultar o site.")
+    return 0
 
 
 # ------------------------------------------------------------ diagnóstico ----
@@ -213,6 +243,13 @@ def diagnosticar(pagina):
 
 # ------------------------------------------------------------- principal ----
 def main():
+    if modo_refazer():
+        if "--precisa-rodar" in sys.argv:
+            print("Modo refazer: vou reconstruir a página sem consultar o site.")
+            avisar_github(True)
+            return 0
+        return refazer_pagina()
+
     dia, explicita = data_alvo()
     rodar, motivo = precisa_rodar(dia, explicita)
     print(motivo)
