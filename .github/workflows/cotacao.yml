@@ -2,9 +2,12 @@ name: Cotação CEASA
 
 on:
   schedule:
-    # 12:00 UTC = 09:00 em Brasília. De 20 em 20 minutos até 15:40 UTC (12:40 em Brasília):
-    # são 12 tentativas, de segunda a sexta.
-    - cron: "0,20,40 12-15 * * 1-5"
+    # Horário do GitHub é UTC (Brasília + 3h). 11:36 UTC = 08:36 em Brasília.
+    # De 20 em 20 minutos até 15:36 UTC (12:36 em Brasília): 08:36 + 12 tentativas = 13 execuções,
+    # de segunda a sexta. Evita o começo de cada hora, quando o GitHub mais atrasa agendamentos.
+    - cron: "36,56 11 * * 1-5"
+    - cron: "16,36,56 12-14 * * 1-5"
+    - cron: "16,36 15 * * 1-5"
   workflow_dispatch:
     inputs:
       data:
