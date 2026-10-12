@@ -4,7 +4,8 @@ Robô de PUBLICAÇÃO diária - CEASA-ES Grande Vitória
 Roda várias vezes por dia (a cada 20 min, das 9h às 12h40, de seg. a sex.), pensado para
 o GitHub Actions. Em cada rodada:
 
-  1. Fim de semana, ou boletim de hoje já publicado?  -> encerra na hora.
+  1. Fim de semana, ou boletim de hoje já publicado COMPLETO?  -> encerra na hora.
+     (completo = ao menos 90% dos produtos do dia anterior; se veio pela metade, consulta de novo)
   2. Abre o site e vê se a data de hoje já está disponível com a tabela de produtos.
      Se ainda não saiu, encerra tranquilo (a próxima rodada tenta de novo).
   3. Se saiu: grava o dia em dados/cotacoes.csv e gera docs/cotacao.html e docs/cotacao.json.
@@ -30,6 +31,7 @@ CSV_ARQUIVO = Path("dados/cotacoes.csv")
 SAIDA = Path("docs")
 CABECALHO = ["Dia", "Mês", "Ano", "Produto", "M.C."]
 MINIMO_PRODUTOS = int(os.environ.get("MINIMO_PRODUTOS", "20"))  # menos que isso = tabela incompleta
+FRACAO_COMPLETO = 0.9   # boletim completo = ao menos 90% dos produtos do dia anterior
 
 
 def argumento(nome):
@@ -47,21 +49,44 @@ def data_alvo():
 
 
 # ------------------------------------------------------- verificações leves ----
-def ja_publicado(dia):
-    if not CSV_ARQUIVO.exists():
-        return False
-    with CSV_ARQUIVO.open(encoding="utf-8-sig", newline="") as f:
-        for linha in csv.reader(f, delimiter=";"):
-            if linha[:3] == [str(dia.day), str(dia.month), str(dia.year)]:
-                return True
-    return False
+def contagens():
+    """Quantos produtos cada dia tem no CSV: {(dia, mês, ano): quantidade}, na ordem do arquivo."""
+    cont = {}
+    if CSV_ARQUIVO.exists():
+        with CSV_ARQUIVO.open(encoding="utf-8-sig", newline="") as f:
+            for linha in csv.reader(f, delimiter=";"):
+                if len(linha) >= 3 and linha[0].isdigit():
+                    chave = tuple(linha[:3])
+                    cont[chave] = cont.get(chave, 0) + 1
+    return cont
+
+
+def chave(dia):
+    return (str(dia.day), str(dia.month), str(dia.year))
+
+
+def esperado(dia):
+    """Quantos produtos um boletim completo deve ter: 90% do dia anterior publicado (mínimo MINIMO_PRODUTOS).
+    O CEASA lança o boletim aos poucos de manhã; com menos que isso, o dia ainda está incompleto."""
+    outros = [n for k, n in contagens().items() if k != chave(dia)]
+    if not outros:
+        return MINIMO_PRODUTOS
+    return max(MINIMO_PRODUTOS, int(outros[-1] * FRACAO_COMPLETO))
+
+
+def publicados(dia):
+    return contagens().get(chave(dia), 0)
 
 
 def precisa_rodar(dia, explicita):
     if not explicita and dia.weekday() >= 5:
         return False, f"{dia:%d/%m/%Y} é fim de semana: nada a fazer."
-    if ja_publicado(dia):
-        return False, f"O boletim de {dia:%d/%m/%Y} já foi publicado: nada a fazer."
+    n, meta = publicados(dia), esperado(dia)
+    if n >= meta:
+        return False, f"O boletim de {dia:%d/%m/%Y} já foi publicado completo ({n} produtos): nada a fazer."
+    if n:
+        return True, (f"O boletim de {dia:%d/%m/%Y} foi publicado incompleto ({n} produtos, "
+                      f"esperado ao menos {meta}): vou consultar de novo.")
     return True, f"Boletim de {dia:%d/%m/%Y} ainda não publicado: vou consultar o site."
 
 
@@ -79,16 +104,31 @@ def preco_br(valor):
 
 
 def gravar_csv(dia, itens):
-    """Acrescenta o dia no CSV (separador ';' e vírgula decimal: abre direto no Excel em português)."""
+    """Grava o dia no CSV (separador ';' e vírgula decimal: abre direto no Excel em português).
+    Se o dia já existia (boletim incompleto), as linhas antigas dele são substituídas no mesmo lugar."""
     CSV_ARQUIVO.parent.mkdir(parents=True, exist_ok=True)
-    novo = not CSV_ARQUIVO.exists()
-    with CSV_ARQUIVO.open("w" if novo else "a", encoding="utf-8-sig" if novo else "utf-8",
-                          newline="") as f:
-        w = csv.writer(f, delimiter=";")
-        if novo:
-            w.writerow(CABECALHO)
-        for it in itens:
-            w.writerow([dia.day, dia.month, dia.year, it["produto"], preco_br(it["preco"])])
+    novas = [[str(dia.day), str(dia.month), str(dia.year), it["produto"], preco_br(it["preco"])]
+             for it in itens]
+    linhas = [CABECALHO]
+    if CSV_ARQUIVO.exists():
+        with CSV_ARQUIVO.open(encoding="utf-8-sig", newline="") as f:
+            linhas = [l for l in csv.reader(f, delimiter=";") if l]
+    pos = next((i for i, l in enumerate(linhas) if tuple(l[:3]) == chave(dia)), None)
+    linhas = [l for l in linhas if tuple(l[:3]) != chave(dia)]
+    if pos is None:
+        linhas += novas
+    else:
+        linhas[pos:pos] = novas
+    with CSV_ARQUIVO.open("w", encoding="utf-8-sig", newline="") as f:
+        csv.writer(f, delimiter=";").writerows(linhas)
+
+
+def data_da_pagina():
+    arquivo = SAIDA / "cotacao.json"
+    try:
+        return datetime.fromisoformat(json.loads(arquivo.read_text(encoding="utf-8"))["data"]).date()
+    except Exception:  # noqa: BLE001
+        return None
 
 
 PAGINA = """<!doctype html>
@@ -149,7 +189,7 @@ PAGINA = """<!doctype html>
       </tbody>
     </table>
   </div>
-  <footer>Preço médio dos produtos conforme o boletim diário do CEASA-ES. Atualizado em {atualizado}.</footer>
+  <footer>Preço médio dos produtos conforme o boletim diário do CEASA-ES. Atualizado em {atualizado}.{aviso}</footer>
 </div>
 <script>
   var q = document.getElementById('q'), linhas = document.querySelectorAll('#corpo tr'),
@@ -169,7 +209,7 @@ PAGINA = """<!doctype html>
 """
 
 
-def gerar_pagina(dia, itens, atualizado_em=None, escrever_json=True):
+def gerar_pagina(dia, itens, atualizado_em=None, escrever_json=True, completo=True):
     SAIDA.mkdir(parents=True, exist_ok=True)
     agora = atualizado_em or datetime.now(BRASILIA)
     linhas = "\n".join(
@@ -179,13 +219,16 @@ def gerar_pagina(dia, itens, atualizado_em=None, escrever_json=True):
         for i, it in enumerate(itens))
     (SAIDA / "cotacao.html").write_text(
         PAGINA.format(data_br=f"{dia:%d/%m/%Y}", total=len(itens), linhas=linhas,
-                      atualizado=f"{agora:%d/%m/%Y às %H:%M}"),
+                      atualizado=f"{agora:%d/%m/%Y às %H:%M}",
+                      aviso="" if completo else " O CEASA ainda está lançando o boletim de hoje: "
+                                                 "a lista será completada nas próximas atualizações."),
         encoding="utf-8")
     if escrever_json:
         (SAIDA / "cotacao.json").write_text(
             json.dumps({"data": dia.isoformat(), "data_br": f"{dia:%d/%m/%Y}",
                         "mercado": "CEASA Grande Vitória",
                         "atualizado_em": agora.isoformat(timespec="seconds"),
+                        "completo": completo,
                         "itens": itens}, ensure_ascii=False, indent=1),
             encoding="utf-8")
 
@@ -204,7 +247,8 @@ def refazer_pagina():
     dados = json.loads(arquivo.read_text(encoding="utf-8"))
     dia = datetime.fromisoformat(dados["data"]).date()
     atualizado = datetime.fromisoformat(dados["atualizado_em"])
-    gerar_pagina(dia, dados["itens"], atualizado, escrever_json=False)
+    gerar_pagina(dia, dados["itens"], atualizado, escrever_json=False,
+                 completo=dados.get("completo", True))
     print(f"Página refeita com os dados de {dia:%d/%m/%Y} ({len(dados['itens'])} produtos), "
           "sem consultar o site.")
     return 0
@@ -304,9 +348,19 @@ def main():
         print("Nenhum produto para publicar (confira a lista PRODUTOS).")
         return 0
 
+    antes, meta = publicados(dia), esperado(dia)
+    if len(itens) <= antes:
+        print(f"O site ainda mostra {len(itens)} produtos para {dia:%d/%m/%Y}, e já publiquei {antes}: "
+              "nada mudou. Tento de novo na próxima rodada.")
+        return 0
+
+    completo = len(itens) >= meta
     gravar_csv(dia, itens)
-    gerar_pagina(dia, itens)
-    print(f"Publicado: {len(itens)} produtos de {dia:%d/%m/%Y} "
+    pagina = data_da_pagina()
+    if pagina is None or dia >= pagina:     # não troca a página de um dia mais novo por um dia antigo
+        gerar_pagina(dia, itens, completo=completo)
+    situacao = "completo" if completo else f"ainda incompleto (esperado ao menos {meta})"
+    print(f"Publicado: {len(itens)} produtos de {dia:%d/%m/%Y} ({situacao}) "
           f"em {CSV_ARQUIVO} e {SAIDA / 'cotacao.html'}.")
     return 0
 
