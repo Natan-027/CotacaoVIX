@@ -103,6 +103,16 @@ def preco_br(valor):
     return f"{valor:.2f}".replace(".", ",")
 
 
+def preco_ou_traco(valor):
+    """Preço no formato 4,55; traço quando o boletim não trouxe o valor."""
+    try:
+        if valor is None or valor != valor:   # vazio ou NaN
+            return "–"
+        return preco_br(float(valor))
+    except (TypeError, ValueError):
+        return "–"
+
+
 def gravar_csv(dia, itens):
     """Grava o dia no CSV (separador ';' e vírgula decimal: abre direto no Excel em português).
     Se o dia já existia (boletim incompleto), as linhas antigas dele são substituídas no mesmo lugar."""
@@ -147,15 +157,15 @@ PAGINA = """<!doctype html>
   header {{ padding:16px 18px 12px; border-bottom:1px solid var(--linha); }}
   .origem {{ margin:0; font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--suave); }}
   h1 {{ margin:2px 0 0; font-size:20px; color:var(--destaque); }}
+  .nota {{ margin:2px 0 0; font-size:13px; color:var(--suave); }}
   .busca {{ padding:10px 18px; border-bottom:1px solid var(--linha); display:flex; gap:10px; align-items:center; }}
   .busca input {{ flex:1; min-width:0; padding:8px 10px; border:1px solid var(--linha); border-radius:8px; font:inherit; }}
   .busca span {{ color:var(--suave); font-size:13px; white-space:nowrap; }}
   .rolagem {{ max-height:560px; overflow:auto; }}
   table {{ width:100%; border-collapse:collapse; table-layout:fixed; }}
-  /* larguras: produto ~17 caracteres, embalagem ~9, preço ~5 (em %, para nunca precisar de rolagem lateral) */
-  col.c1 {{ width:52%; }}
-  col.c2 {{ width:29%; }}
-  col.c3 {{ width:19%; }}
+  /* larguras em %, para nunca precisar de rolagem lateral no celular; a embalagem fica embaixo do nome */
+  col.c1 {{ width:43%; }}
+  col.c2, col.c3, col.c4 {{ width:19%; }}
   th, td {{ padding:4px var(--meio); text-align:left; border-bottom:1px solid var(--linha); overflow-wrap:break-word; }}
   th:first-child, td:first-child {{ padding-left:var(--borda); }}
   th:last-child, td:last-child {{ padding-right:var(--borda); }}
@@ -163,7 +173,8 @@ PAGINA = """<!doctype html>
        letter-spacing:.04em; color:var(--suave); padding-top:6px; padding-bottom:6px; }}
   td.num {{ text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; }}
   th.num {{ text-align:right; }}
-  td.emb {{ color:var(--suave); font-size:13px; }}
+  td .emb {{ display:block; color:var(--suave); font-size:12px; }}
+  td.mc {{ font-weight:600; }}
   tr.par td {{ background:var(--fundo-par); }}
   tr:last-child td {{ border-bottom:0; }}
   footer {{ padding:10px 18px; font-size:12px; color:var(--suave); border-top:1px solid var(--linha); }}
@@ -175,6 +186,7 @@ PAGINA = """<!doctype html>
   <header>
     <p class="origem">CEASA-ES · Grande Vitória</p>
     <h1>Cotação do dia {data_br}</h1>
+    <p class="nota">Preços em R$: mínimo, comum e máximo.</p>
   </header>
   <div class="busca">
     <input id="q" type="search" placeholder="Buscar produto..." aria-label="Buscar produto">
@@ -182,14 +194,14 @@ PAGINA = """<!doctype html>
   </div>
   <div class="rolagem">
     <table>
-      <colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup>
-      <thead><tr><th>Produto</th><th>Embalagem</th><th class="num">R$</th></tr></thead>
+      <colgroup><col class="c1"><col class="c2"><col class="c3"><col class="c4"></colgroup>
+      <thead><tr><th>Produto</th><th class="num">Mín</th><th class="num">Comum</th><th class="num">Máx</th></tr></thead>
       <tbody id="corpo">
 {linhas}
       </tbody>
     </table>
   </div>
-  <footer>Preço médio dos produtos conforme o boletim diário do CEASA-ES. Atualizado em {atualizado}.{aviso}</footer>
+  <footer>Informações atualizadas em {atualizado} conforme o boletim diário do CEASA-ES.{aviso}</footer>
 </div>
 <script>
   var q = document.getElementById('q'), linhas = document.querySelectorAll('#corpo tr'),
@@ -213,9 +225,11 @@ def gerar_pagina(dia, itens, atualizado_em=None, escrever_json=True, completo=Tr
     SAIDA.mkdir(parents=True, exist_ok=True)
     agora = atualizado_em or datetime.now(BRASILIA)
     linhas = "\n".join(
-        f'        <tr{" class=\"par\"" if i % 2 else ""}><td>{html.escape(it["produto"])}</td>'
-        f'<td class="emb">{html.escape(it["embalagem"])}</td>'
-        f'<td class="num">{preco_br(it["preco"])}</td></tr>'
+        f'        <tr{" class=\"par\"" if i % 2 else ""}><td>{html.escape(it["produto"])}'
+        f'<span class="emb">{html.escape(it["embalagem"])}</span></td>'
+        f'<td class="num">{preco_ou_traco(it.get("minimo"))}</td>'
+        f'<td class="num mc">{preco_br(it["preco"])}</td>'
+        f'<td class="num">{preco_ou_traco(it.get("maximo"))}</td></tr>'
         for i, it in enumerate(itens))
     (SAIDA / "cotacao.html").write_text(
         PAGINA.format(data_br=f"{dia:%d/%m/%Y}", total=len(itens), linhas=linhas,
@@ -340,10 +354,20 @@ def main():
     tabela = tabela.dropna(subset=["M.C."])
     if cot.PRODUTOS:
         tabela = tabela[tabela["Produto"].isin(cot.PRODUTOS)]
+    def numero(v):
+        try:
+            v = float(v)
+            return None if v != v else v
+        except (TypeError, ValueError):
+            return None
+
+    vazio = [None] * len(tabela)
     itens = [{"produto": str(p), "embalagem": "" if e is None or str(e) == "<NA>" else str(e),
-              "preco": float(mc)}
-             for p, e, mc in zip(tabela["Produto"], tabela.get("Embalagem", [""] * len(tabela)),
-                                 tabela["M.C."])]
+              "minimo": numero(mn), "preco": float(mc), "maximo": numero(mx)}
+             for p, e, mn, mc, mx in zip(tabela["Produto"],
+                                         tabela.get("Embalagem", [""] * len(tabela)),
+                                         tabela.get("Mínimo", vazio), tabela["M.C."],
+                                         tabela.get("Máximo", vazio))]
     if not itens:
         print("Nenhum produto para publicar (confira a lista PRODUTOS).")
         return 0
