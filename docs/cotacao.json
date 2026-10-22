@@ -2,7 +2,7 @@
  "data": "2026-10-22",
  "data_br": "22/10/2026",
  "mercado": "CEASA Grande Vitória",
- "atualizado_em": "2026-10-22T09:37:05-03:00",
+ "atualizado_em": "2026-10-22T10:15:58-03:00",
  "completo": false,
  "itens": [
   {
@@ -235,6 +235,20 @@
    "minimo": 4.06,
    "preco": 4.17,
    "maximo": 4.22
+  },
+  {
+   "produto": "TOMATE ITALIANO",
+   "embalagem": "KG",
+   "minimo": 6.08,
+   "preco": 6.25,
+   "maximo": 6.5
+  },
+  {
+   "produto": "TOMATE LONGA VIDA EXTRA AA",
+   "embalagem": "KG",
+   "minimo": 6.5,
+   "preco": 6.83,
+   "maximo": 7.17
   },
   {
    "produto": "ALHO IMP BRANCO CHINES",
