@@ -2,9 +2,93 @@
  "data": "2026-10-23",
  "data_br": "23/10/2026",
  "mercado": "CEASA Grande Vitória",
- "atualizado_em": "2026-10-23T09:31:15-03:00",
- "completo": false,
+ "atualizado_em": "2026-10-23T09:50:32-03:00",
+ "completo": true,
  "itens": [
+  {
+   "produto": "AGRIAO",
+   "embalagem": "KG",
+   "minimo": 4.55,
+   "preco": 4.55,
+   "maximo": 4.55
+  },
+  {
+   "produto": "ALECRIM",
+   "embalagem": "KG",
+   "minimo": 14.29,
+   "preco": 14.29,
+   "maximo": 14.29
+  },
+  {
+   "produto": "ALFACE AMERICANA",
+   "embalagem": "KG",
+   "minimo": 3.33,
+   "preco": 3.33,
+   "maximo": 3.33
+  },
+  {
+   "produto": "ALFACE CRESPA",
+   "embalagem": "KG",
+   "minimo": 3.33,
+   "preco": 3.33,
+   "maximo": 3.33
+  },
+  {
+   "produto": "ALFACE LISA",
+   "embalagem": "KG",
+   "minimo": 3.33,
+   "preco": 3.33,
+   "maximo": 3.33
+  },
+  {
+   "produto": "ALHO PORRO",
+   "embalagem": "KG",
+   "minimo": 8.7,
+   "preco": 8.7,
+   "maximo": 8.7
+  },
+  {
+   "produto": "ALMEIRAO",
+   "embalagem": "KG",
+   "minimo": 1.82,
+   "preco": 1.82,
+   "maximo": 1.82
+  },
+  {
+   "produto": "BROCOLO COMUM",
+   "embalagem": "KG",
+   "minimo": 5.26,
+   "preco": 5.26,
+   "maximo": 5.26
+  },
+  {
+   "produto": "BROCOLO NINJA",
+   "embalagem": "KG",
+   "minimo": 4.17,
+   "preco": 4.5,
+   "maximo": 4.83
+  },
+  {
+   "produto": "CEBOLINHA",
+   "embalagem": "KG",
+   "minimo": 5.26,
+   "preco": 5.26,
+   "maximo": 5.26
+  },
+  {
+   "produto": "CHICORIA",
+   "embalagem": "KG",
+   "minimo": 2.59,
+   "preco": 3.02,
+   "maximo": 3.45
+  },
+  {
+   "produto": "COENTRO",
+   "embalagem": "KG",
+   "minimo": 5.26,
+   "preco": 5.26,
+   "maximo": 5.26
+  },
   {
    "produto": "COUVE",
    "embalagem": "KG",
@@ -851,6 +935,41 @@
    "minimo": 9.58,
    "preco": 9.58,
    "maximo": 9.58
+  },
+  {
+   "produto": "OVOS CODORNA",
+   "embalagem": "CX 50 DZ",
+   "minimo": 101.0,
+   "preco": 102.0,
+   "maximo": 103.0
+  },
+  {
+   "produto": "OVOS GRANJA BRANCO EXTRA",
+   "embalagem": "CX 30 DZ",
+   "minimo": 133.0,
+   "preco": 134.0,
+   "maximo": 135.0
+  },
+  {
+   "produto": "OVOS GRANJA BCO GRANDE",
+   "embalagem": "CX 30 DZ",
+   "minimo": 128.0,
+   "preco": 129.0,
+   "maximo": 130.0
+  },
+  {
+   "produto": "OVOS GRANJA VERMELHO EXTRA",
+   "embalagem": "CX 30 DZ",
+   "minimo": 160.0,
+   "preco": 164.0,
+   "maximo": 168.0
+  },
+  {
+   "produto": "OVOS GRANJA VERM GRAND",
+   "embalagem": "CX 30 DZ",
+   "minimo": 155.0,
+   "preco": 159.0,
+   "maximo": 163.0
   },
   {
    "produto": "AMENDOIM COM CASCA",
