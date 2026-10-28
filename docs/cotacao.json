@@ -1,8 +1,8 @@
 {
- "data": "2026-10-27",
- "data_br": "27/10/2026",
+ "data": "2026-10-28",
+ "data_br": "28/10/2026",
  "mercado": "CEASA Grande Vitória",
- "atualizado_em": "2026-10-27T09:31:10-03:00",
+ "atualizado_em": "2026-10-28T09:31:10-03:00",
  "completo": true,
  "itens": [
   {
@@ -15,37 +15,37 @@
   {
    "produto": "ALECRIM",
    "embalagem": "KG",
-   "minimo": 14.29,
-   "preco": 14.29,
-   "maximo": 14.29
+   "minimo": 28.57,
+   "preco": 28.57,
+   "maximo": 28.57
   },
   {
    "produto": "ALFACE AMERICANA",
    "embalagem": "KG",
-   "minimo": 4.17,
-   "preco": 4.33,
-   "maximo": 4.5
+   "minimo": 6.21,
+   "preco": 6.47,
+   "maximo": 6.67
   },
   {
    "produto": "ALFACE CRESPA",
    "embalagem": "KG",
-   "minimo": 4.17,
-   "preco": 4.33,
-   "maximo": 4.5
+   "minimo": 6.21,
+   "preco": 6.47,
+   "maximo": 6.67
   },
   {
    "produto": "ALFACE LISA",
    "embalagem": "KG",
-   "minimo": 4.17,
-   "preco": 4.33,
-   "maximo": 4.5
+   "minimo": 6.21,
+   "preco": 6.47,
+   "maximo": 6.67
   },
   {
    "produto": "ALHO PORRO",
    "embalagem": "KG",
-   "minimo": 13.59,
-   "preco": 14.67,
-   "maximo": 15.76
+   "minimo": 13.04,
+   "preco": 13.04,
+   "maximo": 13.04
   },
   {
    "produto": "ALMEIRAO",
@@ -57,16 +57,16 @@
   {
    "produto": "BROCOLO COMUM",
    "embalagem": "KG",
-   "minimo": 5.26,
-   "preco": 5.26,
-   "maximo": 5.26
+   "minimo": 7.89,
+   "preco": 7.89,
+   "maximo": 7.89
   },
   {
    "produto": "BROCOLO NINJA",
    "embalagem": "KG",
-   "minimo": 5.31,
-   "preco": 5.52,
-   "maximo": 5.73
+   "minimo": 5.1,
+   "preco": 5.31,
+   "maximo": 5.52
   },
   {
    "produto": "CEBOLINHA",
@@ -85,9 +85,9 @@
   {
    "produto": "COENTRO",
    "embalagem": "KG",
-   "minimo": 5.26,
-   "preco": 5.26,
-   "maximo": 5.26
+   "minimo": 7.89,
+   "preco": 7.89,
+   "maximo": 7.89
   },
   {
    "produto": "COUVE",
@@ -99,16 +99,16 @@
   {
    "produto": "COUVE CHINESA",
    "embalagem": "KG",
-   "minimo": 1.51,
-   "preco": 1.58,
-   "maximo": 1.65
+   "minimo": 1.45,
+   "preco": 1.52,
+   "maximo": 1.58
   },
   {
    "produto": "COUVE-FLOR BRANCA GRAUDA",
    "embalagem": "ENG 08 UNID",
-   "minimo": 26.0,
-   "preco": 27.0,
-   "maximo": 28.0
+   "minimo": 30.0,
+   "preco": 30.0,
+   "maximo": 30.0
   },
   {
    "produto": "ESPINAFRE PRIMEIRA",
@@ -127,9 +127,9 @@
   {
    "produto": "MANJERICAO",
    "embalagem": "KG",
-   "minimo": 8.33,
-   "preco": 8.33,
-   "maximo": 8.33
+   "minimo": 16.67,
+   "preco": 16.67,
+   "maximo": 16.67
   },
   {
    "produto": "MOSTARDA",
@@ -141,16 +141,16 @@
   {
    "produto": "REPOLHO HIBRIDO EXTRA",
    "embalagem": "KG",
-   "minimo": 1.0,
-   "preco": 1.0,
-   "maximo": 1.0
+   "minimo": 0.88,
+   "preco": 0.93,
+   "maximo": 0.98
   },
   {
    "produto": "REPOLHO ROXO EXTRA",
    "embalagem": "KG",
-   "minimo": 1.53,
-   "preco": 1.59,
-   "maximo": 1.66
+   "minimo": 1.5,
+   "preco": 1.5,
+   "maximo": 1.5
   },
   {
    "produto": "RUCULA",
@@ -169,9 +169,9 @@
   {
    "produto": "SALSAO",
    "embalagem": "KG",
-   "minimo": 8.33,
-   "preco": 8.33,
-   "maximo": 8.33
+   "minimo": 9.31,
+   "preco": 9.58,
+   "maximo": 10.0
   },
   {
    "produto": "SERRALHA",
@@ -179,13 +179,6 @@
    "minimo": 4.55,
    "preco": 4.55,
    "maximo": 4.55
-  },
-  {
-   "produto": "TAIOBA",
-   "embalagem": "KG",
-   "minimo": 7.14,
-   "preco": 7.14,
-   "maximo": 7.14
   },
   {
    "produto": "ABOBORA JACARE MADURA",
@@ -197,156 +190,177 @@
   {
    "produto": "ABOBORA MARANHAO",
    "embalagem": "KG",
-   "minimo": 2.17,
-   "preco": 2.17,
-   "maximo": 2.17
+   "minimo": 2.11,
+   "preco": 2.11,
+   "maximo": 2.11
   },
   {
    "produto": "ABÓBORA JACARE VERDE",
    "embalagem": "KG",
    "minimo": 3.33,
-   "preco": 3.47,
-   "maximo": 3.6
+   "preco": 3.33,
+   "maximo": 3.33
   },
   {
    "produto": "ABOBORA JAPONESA",
    "embalagem": "KG",
-   "minimo": 2.63,
-   "preco": 2.63,
-   "maximo": 2.63
+   "minimo": 3.16,
+   "preco": 3.16,
+   "maximo": 3.16
   },
   {
    "produto": "ABOBRINHA PRINCESA",
    "embalagem": "KG",
-   "minimo": 2.23,
-   "preco": 2.28,
+   "minimo": 2.35,
+   "preco": 2.35,
    "maximo": 2.35
   },
   {
    "produto": "ABOBRINHA ITALIANA EXTRA",
    "embalagem": "KG",
-   "minimo": 2.37,
-   "preco": 2.42,
+   "minimo": 2.5,
+   "preco": 2.5,
    "maximo": 2.5
   },
   {
    "produto": "BERINJELA EXTRA",
    "embalagem": "KG",
-   "minimo": 3.0,
-   "preco": 3.1,
-   "maximo": 3.2
+   "minimo": 4.0,
+   "preco": 4.0,
+   "maximo": 4.0
   },
   {
    "produto": "CHUCHU EXTRA",
    "embalagem": "KG",
-   "minimo": 0.89,
-   "preco": 1.0,
-   "maximo": 1.11
+   "minimo": 0.83,
+   "preco": 0.92,
+   "maximo": 1.04
   },
   {
    "produto": "JILO COMPRIDO EXTRA",
    "embalagem": "KG",
-   "minimo": 7.14,
-   "preco": 7.14,
-   "maximo": 7.14
+   "minimo": 5.79,
+   "preco": 5.95,
+   "maximo": 6.03
   },
   {
    "produto": "JILO REDONDO EXTRA",
    "embalagem": "KG",
-   "minimo": 7.14,
-   "preco": 7.14,
-   "maximo": 7.14
+   "minimo": 5.79,
+   "preco": 5.95,
+   "maximo": 6.03
   },
   {
    "produto": "MAXIXE",
    "embalagem": "KG",
-   "minimo": 4.17,
-   "preco": 4.17,
-   "maximo": 4.17
+   "minimo": 6.0,
+   "preco": 6.0,
+   "maximo": 6.0
   },
   {
    "produto": "MILHO VERDE COM PALHA",
    "embalagem": "KG",
-   "minimo": 2.73,
-   "preco": 2.76,
-   "maximo": 2.83
+   "minimo": 2.79,
+   "preco": 2.79,
+   "maximo": 2.79
   },
   {
    "produto": "MILHO VERDE SEM PALHA",
    "embalagem": "KG",
-   "minimo": 7.75,
-   "preco": 7.75,
-   "maximo": 7.75
+   "minimo": 7.25,
+   "preco": 7.25,
+   "maximo": 7.25
   },
   {
    "produto": "PEPINO JAPONES",
    "embalagem": "KG",
-   "minimo": 2.5,
-   "preco": 2.83,
-   "maximo": 3.17
+   "minimo": 2.41,
+   "preco": 2.5,
+   "maximo": 2.59
   },
   {
    "produto": "PEPINO COMUM EXTRA A",
    "embalagem": "KG",
-   "minimo": 2.81,
-   "preco": 2.87,
-   "maximo": 2.9
+   "minimo": 2.22,
+   "preco": 2.22,
+   "maximo": 2.22
+  },
+  {
+   "produto": "PIMENTAO AMARELO",
+   "embalagem": "KG",
+   "minimo": 12.11,
+   "preco": 12.33,
+   "maximo": 12.44
+  },
+  {
+   "produto": "PIMENTAO VERMELHO",
+   "embalagem": "KG",
+   "minimo": 12.11,
+   "preco": 12.33,
+   "maximo": 12.44
   },
   {
    "produto": "PIMENTAO VERDE EXTRA A",
    "embalagem": "KG",
-   "minimo": 5.56,
-   "preco": 6.03,
-   "maximo": 6.67
+   "minimo": 4.74,
+   "preco": 5.32,
+   "maximo": 5.74
   },
   {
    "produto": "QUIABO EXTRA",
    "embalagem": "KG",
-   "minimo": 6.0,
-   "preco": 6.18,
+   "minimo": 6.18,
+   "preco": 6.27,
    "maximo": 6.36
   },
   {
    "produto": "TOMATE CEREJA",
    "embalagem": "KG",
-   "minimo": 3.75,
-   "preco": 3.75,
-   "maximo": 3.75
+   "minimo": 5.38,
+   "preco": 5.38,
+   "maximo": 5.38
   },
   {
    "produto": "TOMATE ITALIANO",
    "embalagem": "KG",
-   "minimo": 9.69,
-   "preco": 9.81,
-   "maximo": 9.94
+   "minimo": 10.0,
+   "preco": 10.13,
+   "maximo": 10.21
   },
   {
    "produto": "TOMATE LONGA VIDA EXTRA AA",
    "embalagem": "KG",
-   "minimo": 8.67,
-   "preco": 9.19,
-   "maximo": 9.83
+   "minimo": 9.83,
+   "preco": 10.05,
+   "maximo": 10.35
   },
   {
    "produto": "TOMATE LONGA VIDA EXTRA A",
    "embalagem": "KG",
-   "minimo": 6.17,
-   "preco": 6.72,
-   "maximo": 7.33
+   "minimo": 6.83,
+   "preco": 7.31,
+   "maximo": 7.67
   },
   {
    "produto": "VAGEM RASTEIRA",
    "embalagem": "KG",
-   "minimo": 11.36,
-   "preco": 11.85,
-   "maximo": 12.1
+   "minimo": 11.11,
+   "preco": 11.78,
+   "maximo": 12.44
+  },
+  {
+   "produto": "VAGEM MACARRAO EXTRA",
+   "embalagem": "KG",
+   "minimo": 6.1,
+   "preco": 6.48,
+   "maximo": 6.86
   },
   {
    "produto": "AIPIM EXTRA",
    "embalagem": "KG",
-   "minimo": 3.0,
-   "preco": 3.0,
-   "maximo": 3.0
+   "minimo": 2.82,
+   "preco": 2.96,
+   "maximo": 3.08
   },
   {
    "produto": "ALHO BRASILEIRO N.5/6",
@@ -358,30 +372,30 @@
   {
    "produto": "ALHO IMP BRANCO CHINES",
    "embalagem": "KG",
-   "minimo": 18.29,
-   "preco": 18.88,
-   "maximo": 19.5
+   "minimo": 17.56,
+   "preco": 17.67,
+   "maximo": 17.89
   },
   {
    "produto": "BATATA BAROA EXTRA A",
    "embalagem": "KG",
-   "minimo": 6.75,
-   "preco": 6.75,
-   "maximo": 6.75
+   "minimo": 6.25,
+   "preco": 6.25,
+   "maximo": 6.25
   },
   {
    "produto": "BATATA LISA AGATHA ESP",
    "embalagem": "KG",
-   "minimo": 4.0,
-   "preco": 4.0,
-   "maximo": 4.0
+   "minimo": 3.88,
+   "preco": 4.05,
+   "maximo": 4.22
   },
   {
    "produto": "BATATA LISA AGATHA PRIM",
    "embalagem": "KG",
-   "minimo": 2.4,
-   "preco": 2.4,
-   "maximo": 2.4
+   "minimo": 2.62,
+   "preco": 2.67,
+   "maximo": 2.76
   },
   {
    "produto": "BATATA DOCE EXTRA",
@@ -393,9 +407,9 @@
   {
    "produto": "BATATA DOCE ESPECIAL",
    "embalagem": "KG",
-   "minimo": 2.54,
-   "preco": 2.73,
-   "maximo": 2.92
+   "minimo": 2.8,
+   "preco": 2.9,
+   "maximo": 3.0
   },
   {
    "produto": "BATATA LISA ASTER.ESP",
@@ -414,9 +428,9 @@
   {
    "produto": "BETERRABA ESPECIAL",
    "embalagem": "KG",
-   "minimo": 2.94,
-   "preco": 2.94,
-   "maximo": 2.94
+   "minimo": 2.38,
+   "preco": 2.38,
+   "maximo": 2.38
   },
   {
    "produto": "CARA EXTRA",
@@ -428,86 +442,86 @@
   {
    "produto": "CEBOLA AMARELA C3",
    "embalagem": "KG",
-   "minimo": 6.79,
-   "preco": 6.88,
-   "maximo": 7.0
+   "minimo": 6.85,
+   "preco": 7.06,
+   "maximo": 7.27
   },
   {
    "produto": "CEBOLA AMARELA C2",
    "embalagem": "KG",
    "minimo": 6.0,
-   "preco": 6.0,
-   "maximo": 6.0
+   "preco": 6.25,
+   "maximo": 6.42
   },
   {
    "produto": "CEBOLA AMARELA C4",
    "embalagem": "KG",
-   "minimo": 6.79,
-   "preco": 6.88,
-   "maximo": 7.0
+   "minimo": 6.85,
+   "preco": 7.06,
+   "maximo": 7.27
   },
   {
    "produto": "CEBOLA IMPORTADA AMARELA",
    "embalagem": "KG",
-   "minimo": 5.38,
-   "preco": 5.38,
-   "maximo": 5.38
+   "minimo": 6.75,
+   "preco": 6.75,
+   "maximo": 6.75
   },
   {
    "produto": "CEBOLA ROXA C3",
    "embalagem": "KG",
-   "minimo": 7.17,
-   "preco": 7.25,
-   "maximo": 7.42
+   "minimo": 6.85,
+   "preco": 7.06,
+   "maximo": 7.27
   },
   {
    "produto": "CENOURA EXTRA A",
    "embalagem": "KG",
-   "minimo": 3.06,
-   "preco": 3.19,
-   "maximo": 3.31
+   "minimo": 3.28,
+   "preco": 3.33,
+   "maximo": 3.44
   },
   {
    "produto": "CENOURA EXTRA",
    "embalagem": "KG",
-   "minimo": 2.4,
-   "preco": 2.46,
+   "minimo": 2.5,
+   "preco": 2.5,
    "maximo": 2.5
   },
   {
    "produto": "GENGIBRE EXTRA",
    "embalagem": "KG",
-   "minimo": 2.14,
-   "preco": 2.14,
-   "maximo": 2.14
+   "minimo": 2.54,
+   "preco": 2.62,
+   "maximo": 2.66
   },
   {
    "produto": "INHAME DEDO EXTRA",
    "embalagem": "KG",
-   "minimo": 5.8,
-   "preco": 5.9,
-   "maximo": 6.0
+   "minimo": 6.5,
+   "preco": 7.0,
+   "maximo": 7.5
   },
   {
    "produto": "ABACATE COMUM EXTRA",
    "embalagem": "KG",
-   "minimo": 2.25,
-   "preco": 2.33,
-   "maximo": 2.44
+   "minimo": 2.5,
+   "preco": 2.5,
+   "maximo": 2.5
   },
   {
    "produto": "ABACAXI PEROLA MIUDO",
    "embalagem": "UN",
    "minimo": 2.0,
-   "preco": 2.1,
-   "maximo": 2.2
+   "preco": 2.13,
+   "maximo": 2.21
   },
   {
    "produto": "ABACAXI PEROLA GRAUDO",
    "embalagem": "UN 1,5 KG",
-   "minimo": 5.47,
-   "preco": 5.92,
-   "maximo": 6.33
+   "minimo": 5.69,
+   "preco": 5.81,
+   "maximo": 5.94
   },
   {
    "produto": "ABACAXI PEROLA MEDIO",
@@ -547,16 +561,16 @@
   {
    "produto": "BANANA NANICA CLIM PRIMEIRA",
    "embalagem": "KG",
-   "minimo": 1.75,
-   "preco": 1.89,
+   "minimo": 1.9,
+   "preco": 1.95,
    "maximo": 2.0
   },
   {
    "produto": "BANANA NANICA CLIM SEG",
    "embalagem": "KG",
-   "minimo": 1.4,
-   "preco": 1.45,
-   "maximo": 1.5
+   "minimo": 1.5,
+   "preco": 1.56,
+   "maximo": 1.6
   },
   {
    "produto": "BANANA OURO CLIM EXTRA",
@@ -575,23 +589,23 @@
   {
    "produto": "BANANA PRATA CLIM EXT",
    "embalagem": "KG",
-   "minimo": 4.5,
-   "preco": 4.5,
-   "maximo": 4.5
+   "minimo": 4.13,
+   "preco": 4.13,
+   "maximo": 4.13
   },
   {
    "produto": "BANANA PRATA CLIM PRIM",
    "embalagem": "KG",
    "minimo": 2.4,
-   "preco": 2.45,
+   "preco": 2.44,
    "maximo": 2.5
   },
   {
    "produto": "BANANA PRATA CLIM SEG",
    "embalagem": "KG",
-   "minimo": 1.4,
-   "preco": 1.45,
-   "maximo": 1.5
+   "minimo": 1.89,
+   "preco": 1.92,
+   "maximo": 1.97
   },
   {
    "produto": "BANANA TERRA CLIM EXTRA",
@@ -603,14 +617,14 @@
   {
    "produto": "BANANA TERRA CLIM PRIM",
    "embalagem": "KG",
-   "minimo": 3.5,
-   "preco": 3.78,
+   "minimo": 3.58,
+   "preco": 3.83,
    "maximo": 4.0
   },
   {
    "produto": "BANANA TERRA CLIM SEG",
    "embalagem": "KG",
-   "minimo": 2.17,
+   "minimo": 2.11,
    "preco": 2.33,
    "maximo": 2.5
   },
@@ -631,23 +645,23 @@
   {
    "produto": "GOIABA VERMELHA EXTRA",
    "embalagem": "KG",
-   "minimo": 5.83,
-   "preco": 6.07,
-   "maximo": 6.36
+   "minimo": 5.69,
+   "preco": 5.81,
+   "maximo": 5.94
   },
   {
    "produto": "LARANJA BAIA T 84-120",
    "embalagem": "KG",
-   "minimo": 4.4,
-   "preco": 4.7,
-   "maximo": 5.0
+   "minimo": 4.63,
+   "preco": 4.88,
+   "maximo": 5.13
   },
   {
    "produto": "LARANJA LIMA",
    "embalagem": "KG",
-   "minimo": 4.46,
-   "preco": 4.66,
-   "maximo": 4.84
+   "minimo": 4.18,
+   "preco": 4.28,
+   "maximo": 4.39
   },
   {
    "produto": "LARANJA PERA TIPO 96 -140",
@@ -666,23 +680,30 @@
   {
    "produto": "LARANJA PERA TIPO 150 -216",
    "embalagem": "KG",
-   "minimo": 1.85,
-   "preco": 1.85,
-   "maximo": 1.85
+   "minimo": 1.8,
+   "preco": 1.8,
+   "maximo": 1.8
   },
   {
    "produto": "LIMA DA PERSIA",
    "embalagem": "KG",
-   "minimo": 5.28,
-   "preco": 5.28,
-   "maximo": 5.28
+   "minimo": 5.43,
+   "preco": 5.46,
+   "maximo": 5.52
+  },
+  {
+   "produto": "LIMAO GALEGO",
+   "embalagem": "KG",
+   "minimo": 5.13,
+   "preco": 5.13,
+   "maximo": 5.13
   },
   {
    "produto": "LIMAO SICILIANO",
    "embalagem": "KG",
-   "minimo": 8.58,
-   "preco": 8.62,
-   "maximo": 8.65
+   "minimo": 8.67,
+   "preco": 8.67,
+   "maximo": 8.67
   },
   {
    "produto": "LIMAO TAHITI T 256-324",
@@ -694,107 +715,107 @@
   {
    "produto": "MACA FUJI CAT. 1 T. 110-120",
    "embalagem": "KG",
-   "minimo": 6.46,
+   "minimo": 6.55,
    "preco": 6.6,
-   "maximo": 6.74
+   "maximo": 6.67
   },
   {
    "produto": "MACA FUJI CAT. 1 T.135-150",
    "embalagem": "KG",
-   "minimo": 6.06,
-   "preco": 6.07,
-   "maximo": 6.1
+   "minimo": 5.87,
+   "preco": 5.94,
+   "maximo": 6.01
   },
   {
    "produto": "MACA GALA CAT. 1 T. 110-120",
    "embalagem": "KG",
-   "minimo": 6.3,
-   "preco": 6.39,
-   "maximo": 6.48
+   "minimo": 6.54,
+   "preco": 6.57,
+   "maximo": 6.64
   },
   {
    "produto": "MACA GALA CAT. 1 T. 135-150",
    "embalagem": "KG",
-   "minimo": 5.86,
-   "preco": 5.93,
-   "maximo": 6.05
+   "minimo": 5.99,
+   "preco": 6.02,
+   "maximo": 6.08
   },
   {
    "produto": "MAMAO FORMOSA",
    "embalagem": "KG",
-   "minimo": 8.0,
-   "preco": 8.0,
-   "maximo": 8.0
+   "minimo": 6.25,
+   "preco": 6.25,
+   "maximo": 6.25
   },
   {
    "produto": "MAMAO HAWAY TIPO 21",
-   "embalagem": "KG",
-   "minimo": 3.0,
-   "preco": 3.43,
-   "maximo": 3.83
-  },
-  {
-   "produto": "MAMAO HAWAY TIPO 18",
-   "embalagem": "KG",
-   "minimo": 4.0,
-   "preco": 4.29,
-   "maximo": 4.6
-  },
-  {
-   "produto": "MANGA PALMER EXTRA",
-   "embalagem": "KG",
-   "minimo": 3.79,
-   "preco": 3.88,
-   "maximo": 4.0
-  },
-  {
-   "produto": "MANGA TOMMY EXTRA",
-   "embalagem": "KG",
-   "minimo": 3.5,
-   "preco": 3.75,
-   "maximo": 4.0
-  },
-  {
-   "produto": "MARACUJA AZEDO EXTRA AAA",
-   "embalagem": "KG",
-   "minimo": 10.0,
-   "preco": 10.0,
-   "maximo": 10.0
-  },
-  {
-   "produto": "MARACUJA AZEDO EXTRA AA",
-   "embalagem": "KG",
-   "minimo": 6.96,
-   "preco": 7.38,
-   "maximo": 7.83
-  },
-  {
-   "produto": "MELANCIA BABY",
    "embalagem": "KG",
    "minimo": 4.0,
    "preco": 4.0,
    "maximo": 4.0
   },
   {
+   "produto": "MAMAO HAWAY TIPO 18",
+   "embalagem": "KG",
+   "minimo": 5.0,
+   "preco": 5.0,
+   "maximo": 5.0
+  },
+  {
+   "produto": "MANGA PALMER EXTRA",
+   "embalagem": "KG",
+   "minimo": 4.3,
+   "preco": 4.4,
+   "maximo": 4.5
+  },
+  {
+   "produto": "MANGA TOMMY EXTRA",
+   "embalagem": "KG",
+   "minimo": 4.0,
+   "preco": 4.0,
+   "maximo": 4.0
+  },
+  {
+   "produto": "MARACUJA AZEDO EXTRA AAA",
+   "embalagem": "KG",
+   "minimo": 9.38,
+   "preco": 9.63,
+   "maximo": 9.88
+  },
+  {
+   "produto": "MARACUJA AZEDO EXTRA AA",
+   "embalagem": "KG",
+   "minimo": 7.38,
+   "preco": 7.63,
+   "maximo": 7.88
+  },
+  {
+   "produto": "MELANCIA BABY",
+   "embalagem": "KG",
+   "minimo": 4.13,
+   "preco": 4.21,
+   "maximo": 4.29
+  },
+  {
    "produto": "MELANCIA REDONDA GRAUDA",
    "embalagem": "KG",
-   "minimo": 2.5,
-   "preco": 2.5,
-   "maximo": 2.5
+   "minimo": 2.43,
+   "preco": 2.43,
+   "maximo": 2.43
   },
   {
    "produto": "MELAO ORANGE",
    "embalagem": "KG",
-   "minimo": 8.38,
-   "preco": 8.46,
-   "maximo": 8.54
+   "minimo": 11.67,
+   "preco": 11.67,
+   "maximo": 11.67
   },
   {
    "produto": "MELAO PELE DE SAPO",
    "embalagem": "KG",
-   "minimo": 5.38,
-   "preco": 5.38,
-   "maximo": 5.38
+   "minimo": 4.81,
+   "preco": 4.88,
+   "maximo": 4.97
   },
   {
    "produto": "MELAO AMARELO EXTRA",
@@ -806,65 +827,58 @@
   {
    "produto": "MELAO AMARELO PRIMEIRA",
    "embalagem": "KG",
-   "minimo": 5.85,
-   "preco": 6.06,
-   "maximo": 6.27
+   "minimo": 6.29,
+   "preco": 6.38,
+   "maximo": 6.5
   },
   {
    "produto": "MELAO AMARELO SEGUNDA",
    "embalagem": "KG",
-   "minimo": 4.5,
-   "preco": 4.66,
-   "maximo": 4.82
+   "minimo": 3.87,
+   "preco": 3.9,
+   "maximo": 3.94
   },
   {
    "produto": "MORANGO GRAUDO",
    "embalagem": "KG",
-   "minimo": 25.0,
-   "preco": 26.2,
-   "maximo": 27.4
+   "minimo": 23.75,
+   "preco": 24.25,
+   "maximo": 25.0
   },
   {
    "produto": "MORANGO MÉDIO",
    "embalagem": "KG",
-   "minimo": 17.0,
-   "preco": 18.5,
-   "maximo": 20.0
+   "minimo": 16.67,
+   "preco": 18.17,
+   "maximo": 19.67
   },
   {
    "produto": "PESSEGO NAC",
    "embalagem": "KG",
-   "minimo": 10.83,
-   "preco": 10.83,
-   "maximo": 10.83
-  },
-  {
-   "produto": "TANGERINA MURCOTT GRAUDA",
-   "embalagem": "KG",
-   "minimo": 6.06,
-   "preco": 6.17,
-   "maximo": 6.22
+   "minimo": 10.93,
+   "preco": 11.11,
+   "maximo": 11.48
   },
   {
    "produto": "UVA RED GLOBE",
    "embalagem": "KG",
-   "minimo": 16.61,
-   "preco": 16.72,
-   "maximo": 16.88
+   "minimo": 16.69,
+   "preco": 16.95,
+   "maximo": 17.21
   },
   {
    "produto": "UVA CRIMSON",
    "embalagem": "KG",
-   "minimo": 10.7,
-   "preco": 10.86,
-   "maximo": 11.02
+   "minimo": 11.14,
+   "preco": 11.17,
+   "maximo": 11.22
   },
   {
    "produto": "UVA BENITAKA EXTRA A",
    "embalagem": "KG",
-   "minimo": 12.0,
-   "preco": 12.0,
-   "maximo": 12.0
+   "minimo": 12.56,
+   "preco": 12.67,
+   "maximo": 12.89
   },
   {
    "produto": "UVA ITALIA EXTRA",
@@ -883,9 +897,9 @@
   {
    "produto": "AMEIXA IMPORTADA",
    "embalagem": "KG",
-   "minimo": 15.56,
-   "preco": 15.83,
-   "maximo": 16.02
+   "minimo": 16.11,
+   "preco": 16.25,
+   "maximo": 16.34
   },
   {
    "produto": "KIWI IMPORTADO",
@@ -897,84 +911,84 @@
   {
    "produto": "MACA GRAND SMITH EXTRA",
    "embalagem": "KG",
-   "minimo": 11.93,
-   "preco": 12.11,
-   "maximo": 12.19
+   "minimo": 11.84,
+   "preco": 11.91,
+   "maximo": 11.95
   },
   {
    "produto": "MACA RED DELICIOUS EXTRA",
    "embalagem": "KG",
-   "minimo": 9.74,
-   "preco": 10.26,
-   "maximo": 10.79
+   "minimo": 10.21,
+   "preco": 10.63,
+   "maximo": 11.04
   },
   {
    "produto": "PERA D'ANJOU",
    "embalagem": "KG",
-   "minimo": 8.45,
-   "preco": 8.68,
-   "maximo": 8.91
+   "minimo": 8.56,
+   "preco": 8.75,
+   "maximo": 8.94
   },
   {
    "produto": "PERA PORTUGUESA",
    "embalagem": "KG",
-   "minimo": 13.29,
-   "preco": 13.38,
-   "maximo": 13.5
+   "minimo": 13.0,
+   "preco": 13.0,
+   "maximo": 13.0
   },
   {
    "produto": "PERA PACK TRIUMPH",
    "embalagem": "KG",
-   "minimo": 8.24,
-   "preco": 8.4,
-   "maximo": 8.54
+   "minimo": 8.19,
+   "preco": 8.37,
+   "maximo": 8.53
   },
   {
    "produto": "PERA WILLIAMS",
    "embalagem": "KG",
-   "minimo": 10.99,
-   "preco": 11.02,
-   "maximo": 11.08
+   "minimo": 12.22,
+   "preco": 12.22,
+   "maximo": 12.22
   },
   {
    "produto": "PESSEGO IMPORTADO",
    "embalagem": "KG",
-   "minimo": 9.58,
-   "preco": 9.58,
-   "maximo": 9.58
+   "minimo": 9.07,
+   "preco": 9.31,
+   "maximo": 9.63
   },
   {
    "produto": "OVOS CODORNA",
    "embalagem": "CX 50 DZ",
-   "minimo": 100.0,
-   "preco": 100.0,
-   "maximo": 100.0
+   "minimo": 101.0,
+   "preco": 103.0,
+   "maximo": 104.0
   },
   {
    "produto": "OVOS GRANJA BRANCO EXTRA",
    "embalagem": "CX 30 DZ",
-   "minimo": 131.0,
-   "preco": 132.0,
-   "maximo": 133.0
+   "minimo": 130.0,
+   "preco": 130.0,
+   "maximo": 130.0
   },
   {
    "produto": "OVOS GRANJA BCO GRANDE",
    "embalagem": "CX 30 DZ",
-   "minimo": 126.0,
-   "preco": 127.0,
-   "maximo": 128.0
+   "minimo": 125.0,
+   "preco": 125.0,
+   "maximo": 125.0
   },
   {
    "produto": "OVOS GRANJA VERMELHO EXTRA",
    "embalagem": "CX 30 DZ",
-   "minimo": 152.0,
+   "minimo": 151.0,
    "preco": 154.0,
    "maximo": 156.0
   },
   {
    "produto": "OVOS GRANJA VERM GRAND",
    "embalagem": "CX 30 DZ",
-   "minimo": 147.0,
+   "minimo": 146.0,
    "preco": 149.0,
    "maximo": 151.0
   },
@@ -982,29 +996,15 @@
    "produto": "AMENDOIM COM CASCA",
    "embalagem": "KG",
    "minimo": 7.6,
-   "preco": 7.6,
-   "maximo": 7.6
-  },
-  {
-   "produto": "FEIJAO CARIOQUINHA",
-   "embalagem": "KG",
-   "minimo": 8.0,
-   "preco": 8.0,
-   "maximo": 8.0
+   "preco": 7.68,
+   "maximo": 7.76
   },
   {
    "produto": "FEIJAO PRETO",
    "embalagem": "KG",
-   "minimo": 6.07,
-   "preco": 6.22,
-   "maximo": 6.3
-  },
-  {
-   "produto": "FEIJAO MANTEIGA",
-   "embalagem": "KG",
-   "minimo": 8.5,
-   "preco": 8.5,
-   "maximo": 8.5
+   "minimo": 6.13,
+   "preco": 6.21,
+   "maximo": 6.29
   },
   {
    "produto": "FEIJAO VERMELHO",
@@ -1017,8 +1017,8 @@
    "produto": "MILHO SECO",
    "embalagem": "KG",
    "minimo": 2.0,
-   "preco": 2.0,
-   "maximo": 2.0
+   "preco": 2.01,
+   "maximo": 2.02
   },
   {
    "produto": "FAR.DE MANDIOCA",
@@ -1031,15 +1031,15 @@
    "produto": "FUBA",
    "embalagem": "KG",
    "minimo": 4.0,
-   "preco": 4.0,
-   "maximo": 4.0
+   "preco": 4.13,
+   "maximo": 4.21
   },
   {
    "produto": "UVA PASSAS",
    "embalagem": "KG",
-   "minimo": 13.1,
-   "preco": 13.3,
-   "maximo": 13.5
+   "minimo": 13.63,
+   "preco": 13.88,
+   "maximo": 14.17
   }
  ]
 }
