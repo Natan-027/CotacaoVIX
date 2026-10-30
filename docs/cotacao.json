@@ -2,7 +2,7 @@
  "data": "2026-10-30",
  "data_br": "30/10/2026",
  "mercado": "CEASA Grande Vitória",
- "atualizado_em": "2026-10-30T09:31:08-03:00",
+ "atualizado_em": "2026-10-30T10:15:58-03:00",
  "completo": false,
  "itens": [
   {
@@ -195,6 +195,20 @@
    "maximo": 7.25
   },
   {
+   "produto": "PEPINO JAPONES",
+   "embalagem": "KG",
+   "minimo": 2.99,
+   "preco": 3.13,
+   "maximo": 3.26
+  },
+  {
+   "produto": "PEPINO COMUM EXTRA A",
+   "embalagem": "KG",
+   "minimo": 3.33,
+   "preco": 3.33,
+   "maximo": 3.33
+  },
+  {
    "produto": "PIMENTAO AMARELO",
    "embalagem": "KG",
    "minimo": 10.89,
@@ -207,6 +221,34 @@
    "minimo": 10.89,
    "preco": 11.17,
    "maximo": 11.56
+  },
+  {
+   "produto": "PIMENTAO VERDE EXTRA A",
+   "embalagem": "KG",
+   "minimo": 5.12,
+   "preco": 5.37,
+   "maximo": 5.56
+  },
+  {
+   "produto": "QUIABO EXTRA",
+   "embalagem": "KG",
+   "minimo": 7.88,
+   "preco": 8.41,
+   "maximo": 8.94
+  },
+  {
+   "produto": "TOMATE CEREJA",
+   "embalagem": "KG",
+   "minimo": 6.0,
+   "preco": 6.0,
+   "maximo": 6.0
+  },
+  {
+   "produto": "TOMATE ITALIANO",
+   "embalagem": "KG",
+   "minimo": 11.61,
+   "preco": 11.83,
+   "maximo": 11.94
   },
   {
    "produto": "ALHO IMP BRANCO CHINES",
