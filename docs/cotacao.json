@@ -2,9 +2,37 @@
  "data": "2026-10-30",
  "data_br": "30/10/2026",
  "mercado": "CEASA Grande Vitória",
- "atualizado_em": "2026-10-30T10:15:58-03:00",
- "completo": false,
+ "atualizado_em": "2026-10-30T10:31:04-03:00",
+ "completo": true,
  "itens": [
+  {
+   "produto": "AGRIAO",
+   "embalagem": "KG",
+   "minimo": 4.55,
+   "preco": 4.55,
+   "maximo": 4.55
+  },
+  {
+   "produto": "ALECRIM",
+   "embalagem": "KG",
+   "minimo": 14.29,
+   "preco": 14.29,
+   "maximo": 14.29
+  },
+  {
+   "produto": "ALFACE CRESPA",
+   "embalagem": "KG",
+   "minimo": 5.38,
+   "preco": 5.73,
+   "maximo": 6.08
+  },
+  {
+   "produto": "ALFACE LISA",
+   "embalagem": "KG",
+   "minimo": 5.38,
+   "preco": 5.73,
+   "maximo": 6.08
+  },
   {
    "produto": "COUVE",
    "embalagem": "KG",
@@ -251,11 +279,53 @@
    "maximo": 11.94
   },
   {
+   "produto": "TOMATE LONGA VIDA EXTRA AA",
+   "embalagem": "KG",
+   "minimo": 11.61,
+   "preco": 11.83,
+   "maximo": 11.94
+  },
+  {
+   "produto": "TOMATE LONGA VIDA EXTRA A",
+   "embalagem": "KG",
+   "minimo": 7.5,
+   "preco": 8.08,
+   "maximo": 8.67
+  },
+  {
+   "produto": "VAGEM RASTEIRA",
+   "embalagem": "KG",
+   "minimo": 12.22,
+   "preco": 12.22,
+   "maximo": 12.22
+  },
+  {
+   "produto": "AIPIM EXTRA",
+   "embalagem": "KG",
+   "minimo": 3.0,
+   "preco": 3.0,
+   "maximo": 3.0
+  },
+  {
+   "produto": "ALHO BRASILEIRO N.5/6",
+   "embalagem": "KG",
+   "minimo": 18.0,
+   "preco": 18.0,
+   "maximo": 18.0
+  },
+  {
    "produto": "ALHO IMP BRANCO CHINES",
    "embalagem": "KG",
    "minimo": 17.71,
    "preco": 18.13,
    "maximo": 18.54
+  },
+  {
+   "produto": "BATATA BAROA EXTRA A",
+   "embalagem": "KG",
+   "minimo": 7.0,
+   "preco": 7.0,
+   "maximo": 7.0
   },
   {
    "produto": "BATATA LISA AGATHA ESP",
@@ -272,11 +342,46 @@
    "maximo": 3.02
   },
   {
+   "produto": "BATATA DOCE EXTRA",
+   "embalagem": "KG",
+   "minimo": 3.42,
+   "preco": 3.5,
+   "maximo": 3.67
+  },
+  {
+   "produto": "BATATA DOCE ESPECIAL",
+   "embalagem": "KG",
+   "minimo": 2.78,
+   "preco": 2.83,
+   "maximo": 2.94
+  },
+  {
    "produto": "BATATA LISA ASTER.ESP",
    "embalagem": "KG",
    "minimo": 5.2,
    "preco": 5.2,
    "maximo": 5.2
+  },
+  {
+   "produto": "BETERRABA EXTRA",
+   "embalagem": "KG",
+   "minimo": 2.9,
+   "preco": 2.94,
+   "maximo": 3.0
+  },
+  {
+   "produto": "BETERRABA ESPECIAL",
+   "embalagem": "KG",
+   "minimo": 2.61,
+   "preco": 2.72,
+   "maximo": 2.82
+  },
+  {
+   "produto": "CARA EXTRA",
+   "embalagem": "KG",
+   "minimo": 4.21,
+   "preco": 4.21,
+   "maximo": 4.21
   },
   {
    "produto": "CEBOLA AMARELA C3",
@@ -326,6 +431,20 @@
    "minimo": 2.54,
    "preco": 2.66,
    "maximo": 2.76
+  },
+  {
+   "produto": "GENGIBRE EXTRA",
+   "embalagem": "KG",
+   "minimo": 2.18,
+   "preco": 2.26,
+   "maximo": 2.3
+  },
+  {
+   "produto": "INHAME DEDO EXTRA",
+   "embalagem": "KG",
+   "minimo": 4.4,
+   "preco": 4.4,
+   "maximo": 4.4
   },
   {
    "produto": "ABACATE COMUM EXTRA",
@@ -790,11 +909,67 @@
    "maximo": 9.58
   },
   {
+   "produto": "OVOS CODORNA",
+   "embalagem": "CX 50 DZ",
+   "minimo": 100.0,
+   "preco": 100.0,
+   "maximo": 100.0
+  },
+  {
+   "produto": "OVOS GRANJA BRANCO EXTRA",
+   "embalagem": "CX 30 DZ",
+   "minimo": 132.0,
+   "preco": 133.0,
+   "maximo": 134.0
+  },
+  {
+   "produto": "OVOS GRANJA BCO GRANDE",
+   "embalagem": "CX 30 DZ",
+   "minimo": 127.0,
+   "preco": 128.0,
+   "maximo": 129.0
+  },
+  {
+   "produto": "OVOS GRANJA VERMELHO EXTRA",
+   "embalagem": "CX 30 DZ",
+   "minimo": 164.0,
+   "preco": 166.0,
+   "maximo": 169.0
+  },
+  {
    "produto": "AMENDOIM COM CASCA",
    "embalagem": "KG",
    "minimo": 7.6,
    "preco": 7.7,
    "maximo": 7.77
+  },
+  {
+   "produto": "FEIJAO PRETO",
+   "embalagem": "KG",
+   "minimo": 6.24,
+   "preco": 6.38,
+   "maximo": 6.51
+  },
+  {
+   "produto": "FEIJAO VERMELHO",
+   "embalagem": "KG",
+   "minimo": 6.67,
+   "preco": 6.67,
+   "maximo": 6.67
+  },
+  {
+   "produto": "MILHO SECO",
+   "embalagem": "KG",
+   "minimo": 2.01,
+   "preco": 2.02,
+   "maximo": 2.03
+  },
+  {
+   "produto": "FUBA",
+   "embalagem": "KG",
+   "minimo": 4.06,
+   "preco": 4.19,
+   "maximo": 4.31
   },
   {
    "produto": "UVA PASSAS",
