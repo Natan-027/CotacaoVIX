@@ -2,7 +2,7 @@
  "data": "2026-11-06",
  "data_br": "06/11/2026",
  "mercado": "CEASA Grande Vitória",
- "atualizado_em": "2026-11-06T09:40:58-03:00",
+ "atualizado_em": "2026-11-06T10:01:16-03:00",
  "completo": false,
  "itens": [
   {
@@ -186,6 +186,20 @@
    "minimo": 7.68,
    "preco": 7.78,
    "maximo": 7.89
+  },
+  {
+   "produto": "CENOURA EXTRA A",
+   "embalagem": "KG",
+   "minimo": 3.28,
+   "preco": 3.33,
+   "maximo": 3.44
+  },
+  {
+   "produto": "CENOURA EXTRA",
+   "embalagem": "KG",
+   "minimo": 2.5,
+   "preco": 2.56,
+   "maximo": 2.6
   },
   {
    "produto": "ABACATE COMUM EXTRA",
