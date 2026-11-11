@@ -2,7 +2,7 @@
  "data": "2026-11-11",
  "data_br": "11/11/2026",
  "mercado": "CEASA Grande Vitória",
- "atualizado_em": "2026-11-11T09:31:17-03:00",
+ "atualizado_em": "2026-11-11T09:46:12-03:00",
  "completo": false,
  "itens": [
   {
@@ -118,6 +118,27 @@
    "maximo": 66.67
   },
   {
+   "produto": "ABOBORA JACARE MADURA",
+   "embalagem": "KG",
+   "minimo": 2.11,
+   "preco": 2.11,
+   "maximo": 2.11
+  },
+  {
+   "produto": "ABOBORA MARANHAO",
+   "embalagem": "KG",
+   "minimo": 2.17,
+   "preco": 2.17,
+   "maximo": 2.17
+  },
+  {
+   "produto": "ABOBORA JAPONESA",
+   "embalagem": "KG",
+   "minimo": 3.42,
+   "preco": 3.42,
+   "maximo": 3.42
+  },
+  {
    "produto": "PIMENTAO AMARELO",
    "embalagem": "KG",
    "minimo": 11.67,
@@ -130,6 +151,55 @@
    "minimo": 11.67,
    "preco": 12.0,
    "maximo": 12.33
+  },
+  {
+   "produto": "ALHO IMP BRANCO CHINES",
+   "embalagem": "KG",
+   "minimo": 17.56,
+   "preco": 17.67,
+   "maximo": 17.89
+  },
+  {
+   "produto": "BATATA LISA AGATHA ESP",
+   "embalagem": "KG",
+   "minimo": 5.33,
+   "preco": 5.6,
+   "maximo": 5.73
+  },
+  {
+   "produto": "BATATA LISA AGATHA PRIM",
+   "embalagem": "KG",
+   "minimo": 3.2,
+   "preco": 3.2,
+   "maximo": 3.2
+  },
+  {
+   "produto": "BATATA LISA ASTER.ESP",
+   "embalagem": "KG",
+   "minimo": 5.2,
+   "preco": 5.2,
+   "maximo": 5.2
+  },
+  {
+   "produto": "CEBOLA AMARELA C3",
+   "embalagem": "KG",
+   "minimo": 7.78,
+   "preco": 7.83,
+   "maximo": 7.94
+  },
+  {
+   "produto": "CEBOLA AMARELA C4",
+   "embalagem": "KG",
+   "minimo": 7.56,
+   "preco": 7.67,
+   "maximo": 7.72
+  },
+  {
+   "produto": "ABACATE COMUM EXTRA",
+   "embalagem": "KG",
+   "minimo": 2.11,
+   "preco": 2.22,
+   "maximo": 2.32
   },
   {
    "produto": "ATEMOIA",
