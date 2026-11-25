@@ -2,7 +2,7 @@
  "data": "2026-11-25",
  "data_br": "25/11/2026",
  "mercado": "CEASA Grande Vitória",
- "atualizado_em": "2026-11-25T09:30:59-03:00",
+ "atualizado_em": "2026-11-25T09:46:08-03:00",
  "completo": false,
  "itens": [
   {
@@ -88,6 +88,104 @@
    "minimo": 5.26,
    "preco": 5.26,
    "maximo": 5.26
+  },
+  {
+   "produto": "COUVE",
+   "embalagem": "KG",
+   "minimo": 4.55,
+   "preco": 4.55,
+   "maximo": 4.55
+  },
+  {
+   "produto": "COUVE CHINESA",
+   "embalagem": "KG",
+   "minimo": 1.76,
+   "preco": 1.76,
+   "maximo": 1.76
+  },
+  {
+   "produto": "COUVE-FLOR BRANCA GRAUDA",
+   "embalagem": "ENG 08 UNID",
+   "minimo": 50.0,
+   "preco": 50.0,
+   "maximo": 50.0
+  },
+  {
+   "produto": "ESPINAFRE PRIMEIRA",
+   "embalagem": "KG",
+   "minimo": 4.0,
+   "preco": 4.0,
+   "maximo": 4.0
+  },
+  {
+   "produto": "HORTELA",
+   "embalagem": "KG",
+   "minimo": 9.09,
+   "preco": 9.09,
+   "maximo": 9.09
+  },
+  {
+   "produto": "MANJERICAO",
+   "embalagem": "KG",
+   "minimo": 16.67,
+   "preco": 16.67,
+   "maximo": 16.67
+  },
+  {
+   "produto": "MOSTARDA",
+   "embalagem": "KG",
+   "minimo": 3.57,
+   "preco": 3.57,
+   "maximo": 3.57
+  },
+  {
+   "produto": "PALMITO DESCASCADO",
+   "embalagem": "KG",
+   "minimo": 15.0,
+   "preco": 15.0,
+   "maximo": 15.0
+  },
+  {
+   "produto": "REPOLHO HIBRIDO EXTRA",
+   "embalagem": "KG",
+   "minimo": 2.0,
+   "preco": 2.15,
+   "maximo": 2.3
+  },
+  {
+   "produto": "REPOLHO ROXO EXTRA",
+   "embalagem": "KG",
+   "minimo": 2.0,
+   "preco": 2.1,
+   "maximo": 2.2
+  },
+  {
+   "produto": "RUCULA",
+   "embalagem": "KG",
+   "minimo": 5.56,
+   "preco": 5.56,
+   "maximo": 5.56
+  },
+  {
+   "produto": "SALSA",
+   "embalagem": "KG",
+   "minimo": 8.82,
+   "preco": 8.82,
+   "maximo": 8.82
+  },
+  {
+   "produto": "SALSAO",
+   "embalagem": "KG",
+   "minimo": 8.31,
+   "preco": 9.58,
+   "maximo": 10.0
+  },
+  {
+   "produto": "SERRALHA",
+   "embalagem": "KG",
+   "minimo": 4.55,
+   "preco": 4.55,
+   "maximo": 4.55
   },
   {
    "produto": "ABOBORA JACARE MADURA",
@@ -265,6 +363,13 @@
    "maximo": 18.0
   },
   {
+   "produto": "BATATA BAROA EXTRA A",
+   "embalagem": "KG",
+   "minimo": 6.25,
+   "preco": 6.25,
+   "maximo": 6.25
+  },
+  {
    "produto": "BATATA LISA AGATHA ESP",
    "embalagem": "KG",
    "minimo": 5.25,
@@ -279,11 +384,39 @@
    "maximo": 3.51
   },
   {
+   "produto": "BATATA DOCE EXTRA",
+   "embalagem": "KG",
+   "minimo": 3.75,
+   "preco": 3.75,
+   "maximo": 3.75
+  },
+  {
+   "produto": "BATATA DOCE ESPECIAL",
+   "embalagem": "KG",
+   "minimo": 2.5,
+   "preco": 2.63,
+   "maximo": 2.71
+  },
+  {
    "produto": "BATATA LISA ASTER.ESP",
    "embalagem": "KG",
    "minimo": 5.2,
    "preco": 5.2,
    "maximo": 5.2
+  },
+  {
+   "produto": "BETERRABA EXTRA",
+   "embalagem": "KG",
+   "minimo": 5.64,
+   "preco": 5.67,
+   "maximo": 5.72
+  },
+  {
+   "produto": "CARA EXTRA",
+   "embalagem": "KG",
+   "minimo": 5.13,
+   "preco": 5.13,
+   "maximo": 5.13
   },
   {
    "produto": "CEBOLA AMARELA C3",
@@ -333,6 +466,20 @@
    "minimo": 3.38,
    "preco": 3.38,
    "maximo": 3.38
+  },
+  {
+   "produto": "GENGIBRE EXTRA",
+   "embalagem": "KG",
+   "minimo": 2.68,
+   "preco": 2.68,
+   "maximo": 2.68
+  },
+  {
+   "produto": "INHAME DEDO EXTRA",
+   "embalagem": "KG",
+   "minimo": 7.13,
+   "preco": 7.13,
+   "maximo": 7.13
   },
   {
    "produto": "ABACATE COMUM EXTRA",
