@@ -2,8 +2,8 @@
  "data": "2026-11-26",
  "data_br": "26/11/2026",
  "mercado": "CEASA Grande Vitória",
- "atualizado_em": "2026-11-26T09:31:10-03:00",
- "completo": false,
+ "atualizado_em": "2026-11-26T09:45:50-03:00",
+ "completo": true,
  "itens": [
   {
    "produto": "ALECRIM",
@@ -279,6 +279,20 @@
    "maximo": 7.75
   },
   {
+   "produto": "PEPINO JAPONES",
+   "embalagem": "KG",
+   "minimo": 1.74,
+   "preco": 1.89,
+   "maximo": 2.04
+  },
+  {
+   "produto": "PEPINO COMUM EXTRA A",
+   "embalagem": "KG",
+   "minimo": 2.22,
+   "preco": 2.22,
+   "maximo": 2.22
+  },
+  {
    "produto": "PIMENTAO AMARELO",
    "embalagem": "KG",
    "minimo": 9.67,
@@ -291,6 +305,76 @@
    "minimo": 9.67,
    "preco": 10.25,
    "maximo": 10.75
+  },
+  {
+   "produto": "PIMENTAO VERDE EXTRA A",
+   "embalagem": "KG",
+   "minimo": 4.58,
+   "preco": 4.86,
+   "maximo": 5.14
+  },
+  {
+   "produto": "QUIABO EXTRA",
+   "embalagem": "KG",
+   "minimo": 2.73,
+   "preco": 2.73,
+   "maximo": 2.73
+  },
+  {
+   "produto": "TOMATE CEREJA",
+   "embalagem": "KG",
+   "minimo": 5.0,
+   "preco": 5.0,
+   "maximo": 5.0
+  },
+  {
+   "produto": "TOMATE ITALIANO",
+   "embalagem": "KG",
+   "minimo": 7.58,
+   "preco": 7.75,
+   "maximo": 8.0
+  },
+  {
+   "produto": "TOMATE LONGA VIDA EXTRA AA",
+   "embalagem": "KG",
+   "minimo": 6.93,
+   "preco": 7.29,
+   "maximo": 7.5
+  },
+  {
+   "produto": "TOMATE LONGA VIDA EXTRA A",
+   "embalagem": "KG",
+   "minimo": 4.0,
+   "preco": 4.43,
+   "maximo": 4.83
+  },
+  {
+   "produto": "VAGEM RASTEIRA",
+   "embalagem": "KG",
+   "minimo": 7.96,
+   "preco": 8.43,
+   "maximo": 8.89
+  },
+  {
+   "produto": "VAGEM MACARRAO EXTRA",
+   "embalagem": "KG",
+   "minimo": 7.95,
+   "preco": 7.95,
+   "maximo": 7.95
+  },
+  {
+   "produto": "AIPIM EXTRA",
+   "embalagem": "KG",
+   "minimo": 3.0,
+   "preco": 3.06,
+   "maximo": 3.1
+  },
+  {
+   "produto": "ALHO BRASILEIRO N.5/6",
+   "embalagem": "KG",
+   "minimo": 18.0,
+   "preco": 18.0,
+   "maximo": 18.0
   },
   {
    "produto": "ALHO BRASILEIRO ROXO",
@@ -307,6 +391,13 @@
    "maximo": 18.38
   },
   {
+   "produto": "BATATA BAROA EXTRA A",
+   "embalagem": "KG",
+   "minimo": 7.75,
+   "preco": 7.75,
+   "maximo": 7.75
+  },
+  {
    "produto": "BATATA LISA AGATHA ESP",
    "embalagem": "KG",
    "minimo": 5.2,
@@ -321,11 +412,46 @@
    "maximo": 3.51
   },
   {
+   "produto": "BATATA DOCE EXTRA",
+   "embalagem": "KG",
+   "minimo": 3.75,
+   "preco": 3.75,
+   "maximo": 3.75
+  },
+  {
+   "produto": "BATATA DOCE ESPECIAL",
+   "embalagem": "KG",
+   "minimo": 2.88,
+   "preco": 2.88,
+   "maximo": 2.88
+  },
+  {
    "produto": "BATATA LISA ASTER.ESP",
    "embalagem": "KG",
    "minimo": 4.8,
    "preco": 4.8,
    "maximo": 4.8
+  },
+  {
+   "produto": "BETERRABA EXTRA",
+   "embalagem": "KG",
+   "minimo": 5.89,
+   "preco": 6.17,
+   "maximo": 6.39
+  },
+  {
+   "produto": "BETERRABA ESPECIAL",
+   "embalagem": "KG",
+   "minimo": 4.58,
+   "preco": 4.58,
+   "maximo": 4.58
+  },
+  {
+   "produto": "CARA EXTRA",
+   "embalagem": "KG",
+   "minimo": 4.56,
+   "preco": 4.74,
+   "maximo": 4.91
   },
   {
    "produto": "CEBOLA AMARELA C3",
@@ -368,6 +494,20 @@
    "minimo": 2.69,
    "preco": 2.69,
    "maximo": 2.69
+  },
+  {
+   "produto": "GENGIBRE EXTRA",
+   "embalagem": "KG",
+   "minimo": 2.23,
+   "preco": 2.23,
+   "maximo": 2.23
+  },
+  {
+   "produto": "INHAME DEDO EXTRA",
+   "embalagem": "KG",
+   "minimo": 6.61,
+   "preco": 6.83,
+   "maximo": 6.94
   },
   {
    "produto": "ABACATE COMUM EXTRA",
